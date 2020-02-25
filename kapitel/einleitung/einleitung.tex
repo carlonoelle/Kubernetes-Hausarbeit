@@ -1,12 +1,22 @@
 \section{Einleitung}
-Dies soll eine \LaTeX{}-Vorlage für den persönlichen Gebrauch werden. Sie hat weder einen Anspruch auf Richtigkeit, noch auf Vollständigkeit. Die Quellen liegen auf Github zur allgemeinen Verwendung. Verbesserungen sind jederzeit willkommen.
+Diese Arbeit führt das Themengebiet rund um die Softwarelösung Kubernetes, welche das Bereitstellen und Pflegen von weiterer Software vereinfacht und vereinheitlicht. 
+Es wird hierbei auf verschiedene Basistechnologien gesetzt welche das gesamte Thema Softwarebereitstellung in den letzten Jahren stark geformt haben.
 
-\subsection{Zielsetzung}
-Kleiner Reminder für mich in Bezug auf die Dinge, die wir bei der Thesis beachten sollten und \LaTeX{}-Vorlage für die Thesis.
+\subsection{Aktualität und Relevanz}
+Steigende Nachfrage sorgt für immer neue Herausforderungen in der Art und Weise wie die Infrastruktur auf der die Softwarelösung laufen soll auszusehen hat. Was früher noch einzelne Rechner waren, wurde durch Virtualisierung zu Virtuellen Maschinen.
+Jedoch stößt man dort auch an Probleme, wenn man noch flexibler sein will. Der nächste Schritt ist die Containerisierung, und in dessen Entwicklung befinden wir uns gerade jetzt.
+
+Da die Nachfrage auf digitale Angebote nur weiter steigen wird, ist diese Entwicklung von Nöten. Hauptaugenmerk liegt durchgehend darauf, die bestehende Hardware so effizient wie möglich zu betreiben, und eine Ressoucen zu verschwenden.
 
 \subsection{Aufbau der Arbeit}
-Kapitel \ref{infos} enthält die Inhalte des Thesis-Days und alles, was zum inhaltlichen erstellen der Thesis relevant sein könnte. In Kapitel \ref{latexDetails} \nameref{latexDetails} findet ihr wichtige Anmerkungen zu \LaTeX{}, wobei die wirklich wichtigen Dinge im Quelltext dieses Dokumentes stehen (siehe auch die Verzeichnisstruktur in Abbildung \ref{fig:verzeichnisStruktur}).
+Wir müssen verstehen in was für einer Situation wir uns befinden, um zu erkennen warum irgendeine Änderung überhaupt notwendig ist. Unterschiede aber auch Gemeinsamkeiten müssen beleuchtet werden, sowie die tatsächlichen Veränderungen 
+für die Menschen, die mit der Änderung arbeiten müssen.
 
+Auch von Interesse sind die einfachheit der Übernahme in den laufenden Betrieb, sowie die allgemeine "Enterprise-Readiness", wobei aufgezeigt werden soll warum diese neue Technologie der Geschäftswelt gewachsen ist.
+Natürlich werden wir uns auch der Frage stellen, wie die Zukunft dieser Lösung aussieht und ob sie auch wirklich das macht was Sie verspricht und nicht vielleicht doch ähnliche Probleme mitbringt.
+
+\subsection{Hinweise}
+Im weiteren Verlauf dieser Hausarbeit wird aus Gründen der besseren Lesbarkeit das generische Maskulinum verwendet. Weibliche und anderweitige Geschlechteridentitäten werden dabei ausdrücklich mitgemeint, soweit es für die Aussage erforderlich ist.
 
 \begin{figure}[H]
 \caption{Verzeichnisstruktur der \LaTeX{}-Datein}\label{fig:verzeichnisStruktur}
@@ -14,3 +24,18 @@ Kapitel \ref{infos} enthält die Inhalte des Thesis-Days und alles, was zum inha
 \\
 Quelle: Eigene Darstellung
 \end{figure}
+
+\textbf{
+  - Einleitung
+  - Worum geht es (Ist-Situation)
+  - Warum wird es benötigt (Kubernetes vs. VMs)
+  - Chancen und Risiken
+  - Änderung bestehender Prozesse
+  - Ausgewählte Aspekte (Lösung Vorstellen)
+  - Umziehen bestehender Infrastruktur
+  - Enterprise Readiness
+  - Lösung erklären (Handlungsaspekte)
+  - Neue Aufgabenverteilung für Admin und Entwickler (Devops)
+  - Skalierbarkeit
+  - Fazit 
+  }
