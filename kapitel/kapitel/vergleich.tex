@@ -1,0 +1,29 @@
+\newpage
+\section{Chancen und Risiken}
+Mit jedem der genannten Konzepte wird das Ziel verfolgt eine App zu starten sowie diese dann erreichbar zu machen, der Öffentlichkeit oder ausgewählten Personen.
+Schon genannte Aspekte die zu beachten sind währen die Ausfallsicherheit sowie Einfachheit des Arbeitens.
+
+Die erklärten Möglichkeiten der Skalierung währen mit allen Konzepten anwendbar, jedoch wird klar das mittels der Kontainerisierung dies am schnellsten machbar währe.
+Während bei Bare-metal oder Virtualisierung ein weiterer Server/VM erstellt und eingerichtet werden muss, muss bei Docker nur ein Befehl ausgeführt werden um innerhalb Sekunden eine zweite 
+Instanz der App hochzufahren.
+Darüber hinaus ist ein wichtiger Faktor das bei den Wegen ohne Docker Fehler passieren können. Fehler, die auch vielleicht erst irgendwann während der Benutzung auffallen.
+Zum Beispiel wenn die falsche Version einer Abhängigkeit installiert wird, oder Dateien an die falsche Stelle kopiert werden.
+
+Diesen Faktor der Fehleranfälligkeit ist bei der Containerisierung komplett irrelevant, denn ein Docker Image ist unveränderbar, und wenn es gestartet wird 
+entstehen immer exakte Kopien.
+
+Zeit ist in jedem Unternehmen eine kostbare Währung. Wie bereits erwähnt zieht man mittles Kontainerisierung in Sekunden eine neue Instanz jedlicher Server hoch.
+Dies ist mittlerweile ähnlich bei Virtualisierung auch möglich, dort wird mit Kopien von VM's gearbeitet. Bedeutet, das eine VM mit Betriebssystem präperiert wird, und
+sobald dann eine weitere Instanz mit dem OS benötigt wird dupliziert man die vorgefertigte Maschine. Dadurch spart man den Schritt der Neuerstellung und Einrichtung, jedoch
+ist dies in keinster im Sekundenrahmen, und in den meisten Fällen muss die VM die kopiert werden soll ausgeschaltet sein damit sie kopiert werden kann. 
+Dies würde bei einer Website bedeuten das man sie offline nehmen muss, um die Kopierfähigkeit auszunutzen.
+Bare-Metal hat kaum Möglichkeiten gut ein System zu duplizieren der nicht mit viel händischer Arbeit verbunden wäre.
+
+Soviel dazu, nur muss ja wie schon bereits erwähnt muss um Skalieren zu können ein Proxy vor allen verfügbaren Instanzen stehen, damit eine Adresse auf alle zeigen kann.
+Dieses Prinzip trifft auf alle Bereitstellungskonzepte gleich zu, jedoch wurde mittels der Software Kubernetes diese Arbeit erheblich erleichtert. Auch die Skalierung
+wird auf eine neue Ebene gehoben.
+
+Nun sind die hauptsächlichen Chancen und Risiken der verschiedenen Platformen bekannt, jedoch hat die Containerisierung aufgrund ihrer 
+unveränderlichen Images sowie Geschwindigkeit noch weitere Möglichkeiten die und die anderen Platformen nicht so leicht bieten können.
+
+\subsection{Kubernetes}

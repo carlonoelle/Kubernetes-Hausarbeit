@@ -1,18 +1,30 @@
+\newpage
 \section{Aktuelle Möglichkeiten}
 Als Infrastrukturbetreibender, um auch andere Arbeitstitel die heute in der Branche anerkannt sind wie z.B. System Engineer oder Cloud Architect mit einzuschließen, 
-steht man vor verschiedenen Möglichkeiten, woraus sich zwei wesentliche Konzeptunterschiede hervorheben.
+steht man vor verschiedenen Möglichkeiten, wie die Platform auf der die Software nun bereitgestellt werden soll, betrieben wird. Man möchte Kosten sparen und den Aufwand gering halten.
+Dazu sind über die Zeit Produkte und Konzepte entstanden die anfallende Arbeit zu erleichtern, zu verbessern.
+Grundlegend sind die folgenden Konzepte die hauptsächlichen Arten der Bereitstellung von Apps wie sie in der Industrie Verwendung finden:
 
-Zum einen die Virtualisierung, und der etwas jüngere Gegner, die Kontainerisierung (zu Englisch containerisation).
-Die Konzepte einmal zusammengefasst:
+\subsection{Bare-metal}
+Der englische Begriff Bare-metal (zu deutsch: pures Metall) beschreibt die einfache ausführung einer App oder sämtlicher Software auf einem Server. 
+Alles benötigte wird auf den Server installiert und die App gestartet.
+
+Ein Vorteil hierdurch wäre die Einfachheit. Es gibt keinen Zusatzaufwand oder generelle Strukturelle Änderungen nötig.
+
+Der Nachteil ist jedoch das die installierte App dann den ganzen Server für sich alleine hat. Zwei Optionen tun sich nun auf wenn eine weitere App bereitgestellt werden soll. 
+Endweder einen neuen Server bestellen und in die bestehene Infrastruktur eingliedern, oder die zweite App auch auf den Server mit zu installieren.
+Ersteres ist mit hohem bürokratischem und zeitlichen Aufwand verbunden, zweiteres könnte in Probleme laufen. 
+Sollte man nämlich mehrere Apps auf einem System laufen lassen, kann es zu Problemen bei gemeinsam genutzten Abhängigkeiten (Softwarepakete) kommen, wenn beispielsweise verschiedene Versionen gebraucht werden.
+
+Dazu kommt der harte Faktor Ressourcen. Das was der Server an Ressourcen besitzt ist geblockt für alles was dort drauf installiert ist, ob das jetzt eine App ist oder mehrere.
 
 \subsection{Virtualisierung}
-Unter Virtualisierung versteht man mittels einer Softwarelösung die Serverhardware die man besitzt effizienter auszunutzen.
+Unter Virtualisierung~\footcite[Vgl. ][]{website:virtdock} versteht man mittels einer Softwarelösung die Serverhardware die man besitzt effizienter auszunutzen.
 Sie erlaubt es, auf einem Server mehrere virtuelle Maschinen zu erzeugen, die alle ein eigenes Betriebssystem mit sich bringen.
 
 Die Controllersoftware kümmert sich hierbei um die Verteilung der zu Verfügung stehenden Ressourcen. Eine virtuelle Maschine wird mit festen Hardwareanforderungen
 erstellt, und ist dann als eigener Server zu betrachten.
 Diese virtuellen Maschinen nennt man Gast-Systeme, während der reale Server der Wirt ist. Man kann dadurch viele Probleme umgehen, da man eine Software auf einem eigenen Server installieren kann.
-Sollte man nämlich mehrere Apps auf einem System laufen lassen, kann es zu Problemen bei gemeinsam genutzten Abhängigkeiten (Softwarepakete) kommen, wenn beispielsweise verschiedene Versionen gebraucht werden.
 
 Man reduziert sich auch den großen Aufwand einer Neuanschaffung, denn eine virtuelle Maschine ist für einen Administrator schnell erstellt, während einen neuen Server zu kaufen und in sein Netzwerk einzubauen Wochen dauern kann.
 Die Effizienz kommt daher das eine Applikation nur soviel Ressourcen verbraucht wie sie muss, da durch die Virtuelle Maschine die App von den tatsächlich verfügbaren Ressourcen nichts mit bekommt und auch nichts blockiert.
@@ -50,9 +62,19 @@ funktioniert das Erstellen eines Containers anders.
 
 Hier vermischt nämlich die Trennung zwischen dem Infrastrukturbereich und dem des Entwicklers. Einen Docker Container erstellt man durch eine einfach Text Datei, in der durch 
 bestimmte Anweisungen Betriebssystem sowie alle nötigen Abhängigkeiten installiert werden, und auch der Startbefehl für die App schon hinterlegt werden. 
-Bei Docker nennt sich diese Konfigurationsdatei Dockerfile. Das schreiben einer Dockerfile ähnelt dem Schreiben von Code, jedoch stark minimiert auf wesentliche Bestandteile wie: Kopieren von Dateien, Ausführen von Befehlen sowie welchen Ursprung, also Betriebssystem der Container nutzen soll.
+Bei Docker nennt sich diese Konfigurationsdatei Dockerfile. Das schreiben einer Dockerfile ähnelt dem Schreiben von Code, jedoch stark minimiert auf 
+wesentliche Bestandteile wie: Kopieren von Dateien, Ausführen von Befehlen sowie welchen Ursprung, also Betriebssystem der Container nutzen soll.
 Nachdem die Angaben gemacht wurden, liest der Docker Client diese Datei aus und erstellt basierend auf ihr ein sogenanntes Docker Image.
 
 Ein Docker Image ist sozusagen der Ordner indem alles für den Container liegt. Wenn man nun einen Container von der App starten möchte, dann gibt man dem Docker Client den Befehl basierend auf dem Image einen Container zu starten.
 Dies ist auch der Punkt der es leicht macht Dockercontainer unter verschiedenen Hosts auszutauschen. Dazu ist nämlich nur das Kopieren des Images notwendig, und auf dem neuen Wirt kann dieses einfach gestartet werden.
 
+Die Grenzen der Bereiche vermischen nun, da es allgemeine Auffassung, beziehungsweise der angedachte Weg ist das die Erstellung einer Dockerfile in den Aufgabenbereich
+des Entwicklers, des Programmierers fällt. Denn er weiß genau was für Abhängigkeiten benötigt werden und in was für einen Umfeld (Betriebssystem, auch OS) sein App laufen muss.
+
+Somit fällt das ehemalige VM einrichten und aufsetzen was der Admin machte weg und somit die Bereitstellung in den Bereich des Entwicklers.
+Man spricht von dem Konzept DevOps, Dev für den Developer (englisch für Entwickler) und Ops für Operations (ein Überbegriff für die Infrastruktur/Admin Seite).
+
+DevOps beschreibt das Zusammenspiel von Entwickler und Admin, und ist kein starres Modell, sondern vielmehr ein Versuch eine Strucktur in den Prozess der Bereitstellung zu schaffen.
+Jedes Unternehmen hat seinen eigenen Ansatz, generell treffen sich die meisten jedoch bei der Ansicht das die Container von den Entwicklern gebaut werden, der Ops diese dann aber irgendwo sicher zum laufen bringen muss.
+Ob die Ops Seite nur den Server auf dem Docker installiert ist bereitstellen muss und die Anbindung der App an eine Domain wenn es sich um eine Webapp handelt, und der Dev dann seinen Container selber starten und warten muss oder dies anders gelöst ist legt jeder für Sich selbst aus.
