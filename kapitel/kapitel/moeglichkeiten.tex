@@ -1,25 +1,25 @@
 \newpage
 \section{Aktuelle Möglichkeiten}
 Als Infrastrukturbetreibender, um auch andere Arbeitstitel die heute in der Branche anerkannt sind wie z.B. System Engineer oder Cloud Architect mit einzuschließen, 
-steht man vor verschiedenen Möglichkeiten, wie die Platform auf der die Software nun bereitgestellt werden soll, betrieben wird. Man möchte Kosten sparen und den Aufwand gering halten.
+steht man vor verschiedenen Möglichkeiten, wie die Plattform, auf der die Software nun bereitgestellt werden soll, betrieben wird. Man möchte Kosten sparen und den Aufwand gering halten.
 Dazu sind über die Zeit Produkte und Konzepte entstanden die anfallende Arbeit zu erleichtern, zu verbessern.
 Grundlegend sind die folgenden Konzepte die hauptsächlichen Arten der Bereitstellung von Apps wie sie in der Industrie Verwendung finden:
 
 \subsection{Bare-metal}
-Der englische Begriff Bare-metal (zu deutsch: pures Metall) beschreibt die einfache ausführung einer App oder sämtlicher Software auf einem Server. 
+Der englische Begriff Bare-metal~\footcite[Vgl. ][]{website:baremetal} (zu deutsch: pures Metall) beschreibt die einfache Ausführung einer App oder sämtlicher Software auf einem Server. 
 Alles benötigte wird auf den Server installiert und die App gestartet.
 
-Ein Vorteil hierdurch wäre die Einfachheit. Es gibt keinen Zusatzaufwand oder generelle Strukturelle Änderungen nötig.
+Ein Vorteil hierdurch wäre die Einfachheit. Es ist kein Zusatzaufwand oder generelle Strukturelle Änderungen nötig.
 
-Der Nachteil ist jedoch das die installierte App dann den ganzen Server für sich alleine hat. Zwei Optionen tun sich nun auf wenn eine weitere App bereitgestellt werden soll. 
-Endweder einen neuen Server bestellen und in die bestehene Infrastruktur eingliedern, oder die zweite App auch auf den Server mit zu installieren.
+Der Nachteil ist jedoch, dass die installierte App dann den ganzen Server für sich alleine hat. Zwei Optionen tun sich nun auf, wenn eine weitere App bereitgestellt werden soll. 
+Entweder einen neuen Server bestellen und in die bestehene Infrastruktur eingliedern, oder die zweite App auch auf den Server mit zu installieren.
 Ersteres ist mit hohem bürokratischem und zeitlichen Aufwand verbunden, zweiteres könnte in Probleme laufen. 
 Sollte man nämlich mehrere Apps auf einem System laufen lassen, kann es zu Problemen bei gemeinsam genutzten Abhängigkeiten (Softwarepakete) kommen, wenn beispielsweise verschiedene Versionen gebraucht werden.
 
 Dazu kommt der harte Faktor Ressourcen. Das was der Server an Ressourcen besitzt ist geblockt für alles was dort drauf installiert ist, ob das jetzt eine App ist oder mehrere.
 
 \subsection{Virtualisierung}
-Unter Virtualisierung~\footcite[Vgl. ][]{website:virtdock} versteht man mittels einer Softwarelösung die Serverhardware die man besitzt effizienter auszunutzen.
+Unter Virtualisierung~\footcite[Vgl. ][]{website:virtdock} versteht man mittels einer Softwarelösung die Serverhardware die man besitzt, effizienter auszunutzen.
 Sie erlaubt es, auf einem Server mehrere virtuelle Maschinen zu erzeugen, die alle ein eigenes Betriebssystem mit sich bringen.
 
 Die Controllersoftware kümmert sich hierbei um die Verteilung der zu Verfügung stehenden Ressourcen. Eine virtuelle Maschine wird mit festen Hardwareanforderungen
@@ -27,37 +27,38 @@ erstellt, und ist dann als eigener Server zu betrachten.
 Diese virtuellen Maschinen nennt man Gast-Systeme, während der reale Server der Wirt ist. Man kann dadurch viele Probleme umgehen, da man eine Software auf einem eigenen Server installieren kann.
 
 Man reduziert sich auch den großen Aufwand einer Neuanschaffung, denn eine virtuelle Maschine ist für einen Administrator schnell erstellt, während einen neuen Server zu kaufen und in sein Netzwerk einzubauen Wochen dauern kann.
-Die Effizienz kommt daher das eine Applikation nur soviel Ressourcen verbraucht wie sie muss, da durch die Virtuelle Maschine die App von den tatsächlich verfügbaren Ressourcen nichts mit bekommt und auch nichts blockiert.
+Die Effizienz kommt daher, dass eine Applikation nur soviel Ressourcen verbraucht wie sie muss, da durch die Virtuelle Maschine die App von den tatsächlich verfügbaren Ressourcen nichts mit bekommt und auch nichts blockiert.
 
 Soviel zum Guten, jedoch zieht dies auch Nachteile mit sich.
-Natürlich ist es ein Schritt vorwärts wenn man es mit dem Einkauf neuer Hardware vergleicht, jedoch ist es immernoch schwergängig seine App ans laufen zu bekommen.
+Natürlich ist es ein Schritt vorwärts, wenn man es mit dem Einkauf neuer Hardware vergleicht, jedoch ist es immernoch schwergängig seine App ans laufen zu bekommen.
 
-Jede virtuelle Maschine ist wie ein neuer Server. Heißt es muss jedes mal ein neues Betriebssystem installiert und eingerichtet werden. Dazu kommt, das diese Systeme alle auf dem neusten Stand gehalten werden müssen,
-alleine wegen den Sicherheitsupdates. Um das Neuaufsetzen zu umgehen gibt es zwar mittlerweile weitere Tools, genauso für das Updaten, jedoch bleibt die Schwergängigkeit erhalten.
+Jede virtuelle Maschine ist wie ein neuer Server. Heißt es muss jedes mal ein neues Betriebssystem installiert und eingerichtet werden. Dazu kommt, dass diese Systeme alle auf dem neusten Stand gehalten werden müssen,
+alleine wegen den Sicherheitsupdates. Um das Neuaufsetzen zu umgehen, gibt es zwar mittlerweile weitere Tools, genauso für das Updaten, jedoch bleibt die Schwergängigkeit erhalten.
 
 Sollte der Wirt durch einen Hardwaredefekt ausfallen, sind natürlich auch alle VM's (Virtuelle Maschinen) davon betroffen und fallen im schlimmsten Fall auch aus.
 
 \subsection{Kontainerisierung}
-Die Kontainerisierung ist ein neuerer Ansatz, und baut auf dem Virtualisierungskonzept auf. Der Kernunterschied ist jedoch der, das die verschiedenen Kontexte, bei der Virtualisierung die einzelnen VM's,
+Die Kontainerisierung~\footcite[Vgl. ][]{website:container} ist ein neuerer Ansatz, und baut auf dem Virtualisierungskonzept auf. Der Kernunterschied ist jedoch der, dass die verschiedenen Kontexte, bei der Virtualisierung die einzelnen VM's,
 hier keine komplett eigenen Server darstellen, sondern vielmehr auf dem Betriebssystem des Wirtes aufbauen und darauf eigene Software setzt. Man spricht hier von Containern.
 
 Ein Container beherbergt eine Systembasis und die auszuführende Software, eine App oder Website z.B.. Dabei ist er jedoch wesentlich leichtgewichtiger als eine VM, 
-da der großteil der benötigten Systempackete vom Wirt kommt. Man erhält sozusagen eine eigene, abgetrennte Maschine mit eigenem Dateisystem, welche teile des Wirtes mitbenutzt.
+da der Großteil der benötigten Systempakete vom Wirt kommt. Man erhält sozusagen eine eigene, abgetrennte Maschine mit eigenem Dateisystem, welche Teile des Wirtes mitbenutzt.
 
-Dies birgt den großen Vorteil, das Ressourcen nicht fest an einen Container gebunden werden müssen. Also nicht wie bei VM's, bei welchen man fest blockiert wie viel Ressourcen sie jeweils vom Wirt verbrauchen dürfen.
+Dies birgt den großen Vorteil, dass Ressourcen nicht fest an einen Container gebunden werden müssen. Also nicht wie bei VM's, bei welchen man fest blockiert, wie viel Ressourcen sie jeweils vom Wirt verbrauchen dürfen.
 Ein Container startet ohne Angaben von Ressourcen und benutzt einfach flexibel das was er braucht. Dadurch ist die Effizienz noch um einiges höher.
-Dadurch das einiges von Wirt im Container mitbenutzt wird, ist die Startzeit eines Containers um einiges verkürzt. Eine VM muss wie ein richtiger Server hochfahren und alle teile des Betriebssystems anladen, während ein Container das meiste schon geladen hat bevor er gestartet wird.
+Dadurch das einiges vom Wirt im Container mitbenutzt wird, ist die Startzeit eines Containers um einiges verkürzt. 
+Eine VM muss wie ein richtiger Server hochfahren und alle Teile des Betriebssystems anladen, während ein Container das meiste schon geladen hat, bevor er gestartet wird.
 
-Ein weiterer Vorteil durch die Abgabe verschiedener Packete ist das der Speicherplatz für diese nicht mehrfach belegt wird. So ist ein Container mit der
-Linux Distribution (ein Betriebssystem auf Basis des Linux Kernels) Alpine gerade einmal 5 Megabyte groß, während eine VM etwa 130 MB wären.
+Ein weiterer Vorteil durch die Abgabe verschiedener Pakete ist, dass der Speicherplatz für diese nicht mehrfach belegt wird. So ist ein Container mit der
+Linux~\footcite[Vgl. ][]{website:linux} Distribution (ein Betriebssystem auf Basis des Linux Kernels) Alpine gerade einmal 5 Megabyte groß, während eine VM etwa 130 MB wären.
 
-Wie bei der Virtualisierung werden Container wie VM's von einer Controllersoftware verwaltet. Hierzu gibt es mittlerweile mehrere Alternativen, die größte und bekannteste unter ihnen wäre Docker.
+Wie bei der Virtualisierung werden Container wie VM's von einer Controllersoftware verwaltet. Hierzu gibt es mittlerweile mehrere Alternativen, die größte und bekannteste unter ihnen wäre Docker~\footcite[Vgl. ][]{website:docker}.
 Docker bietet seine Software für so gut wie jedes Server Betriebssystem sowie für Desktop Systeme wie MacOS oder Windows an. Ein Container läuft unter jedem Host gleich.
-Bedeutet wenn ein Entwickler seine App in einen Container gepackt hat, kann er diesen Container genauso auf einem Server sowie einem Kollegen mit einem anderen Betriebssystem zukommen lassen, 
-solange es den Docker Client für das Betriebssystem gibt startet der Container gleich.
+Bedeutet, wenn ein Entwickler seine App in einen Container gepackt hat, kann er diesen Container genauso auf einem Server sowie einem Kollegen mit einem anderen Betriebssystem zukommen lassen, 
+solange es den Docker Client für das Betriebssystem gibt, startet der Container gleich.
 Dagegen ist eine VM auf einen anderen Wirt zu übertragen in der Realität oft mit höherem Aufwand verbunden, da Netzwerk- und Speicherplazkonfigurationen z.B. abweichen können.
 
-Wärend bei einer VM der Server durch die Angabe von Randdaten von der Controllersoftware erzeugt wird, und dann die komplette Einrichtung und Installation von Software erst ansteht, 
+Während bei einer VM der Server durch die Angabe von Randdaten von der Controllersoftware erzeugt wird, und dann die komplette Einrichtung und Installation von Software erst ansteht, 
 funktioniert das Erstellen eines Containers anders.
 
 Hier vermischt nämlich die Trennung zwischen dem Infrastrukturbereich und dem des Entwicklers. Einen Docker Container erstellt man durch eine einfach Text Datei, in der durch 
@@ -66,15 +67,15 @@ Bei Docker nennt sich diese Konfigurationsdatei Dockerfile. Das schreiben einer 
 wesentliche Bestandteile wie: Kopieren von Dateien, Ausführen von Befehlen sowie welchen Ursprung, also Betriebssystem der Container nutzen soll.
 Nachdem die Angaben gemacht wurden, liest der Docker Client diese Datei aus und erstellt basierend auf ihr ein sogenanntes Docker Image.
 
-Ein Docker Image ist sozusagen der Ordner indem alles für den Container liegt. Wenn man nun einen Container von der App starten möchte, dann gibt man dem Docker Client den Befehl basierend auf dem Image einen Container zu starten.
+Ein Docker Image ist sozusagen der Ordner, indem alles für den Container liegt. Wenn man nun einen Container von der App starten möchte, dann gibt man dem Docker Client den Befehl basierend auf dem Image einen Container zu starten.
 Dies ist auch der Punkt der es leicht macht Dockercontainer unter verschiedenen Hosts auszutauschen. Dazu ist nämlich nur das Kopieren des Images notwendig, und auf dem neuen Wirt kann dieses einfach gestartet werden.
 
-Die Grenzen der Bereiche vermischen nun, da es allgemeine Auffassung, beziehungsweise der angedachte Weg ist das die Erstellung einer Dockerfile in den Aufgabenbereich
-des Entwicklers, des Programmierers fällt. Denn er weiß genau was für Abhängigkeiten benötigt werden und in was für einen Umfeld (Betriebssystem, auch OS) sein App laufen muss.
+Die Grenzen der Bereiche vermischen nun, da es allgemeine Auffassung, beziehungsweise der angedachte Weg ist, dass die Erstellung einer Dockerfile in den Aufgabenbereich
+des Entwicklers, des Programmierers fällt. Denn er weiß genau, was für Abhängigkeiten benötigt werden und in was für einem Umfeld (Betriebssystem, auch OS) seine App laufen muss.
 
 Somit fällt das ehemalige VM einrichten und aufsetzen was der Admin machte weg und somit die Bereitstellung in den Bereich des Entwicklers.
-Man spricht von dem Konzept DevOps, Dev für den Developer (englisch für Entwickler) und Ops für Operations (ein Überbegriff für die Infrastruktur/Admin Seite).
+Man spricht von dem Konzept DevOps~\footcite[Vgl. ][]{website:devops}, Dev für den Developer (englisch für Entwickler) und Ops für Operations (ein Überbegriff für die Infrastruktur/Admin Seite).
 
 DevOps beschreibt das Zusammenspiel von Entwickler und Admin, und ist kein starres Modell, sondern vielmehr ein Versuch eine Strucktur in den Prozess der Bereitstellung zu schaffen.
-Jedes Unternehmen hat seinen eigenen Ansatz, generell treffen sich die meisten jedoch bei der Ansicht das die Container von den Entwicklern gebaut werden, der Ops diese dann aber irgendwo sicher zum laufen bringen muss.
-Ob die Ops Seite nur den Server auf dem Docker installiert ist bereitstellen muss und die Anbindung der App an eine Domain wenn es sich um eine Webapp handelt, und der Dev dann seinen Container selber starten und warten muss oder dies anders gelöst ist legt jeder für Sich selbst aus.
+Jedes Unternehmen hat seinen eigenen Ansatz, generell treffen sich die meisten jedoch bei der Ansicht, dass die Container von den Entwicklern gebaut werden, der Ops diese dann aber irgendwo sicher zum laufen bringen muss.
+Ob die Ops Seite nur den Server auf dem Docker installiert ist bereitstellen muss und die Anbindung der App an eine Domain wenn es sich um eine Webapp handelt, und der Dev dann seinen Container selber starten und warten muss oder dies anders gelöst ist, legt jeder für sich selbst aus.
